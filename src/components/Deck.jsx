@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 function Deck() {
 	const [cardList, setCardList] = useState([]);
+	const [currentScore, setCurrentScore] = useState(0);
+	const [bestScore, setBestScore] = useState(0);
 
 	useEffect(() => {
 		const newCardList = [];
@@ -34,8 +36,8 @@ function Deck() {
 			<div className="cardsContainer">{cardComponentsList}</div>
 			<div className="infoContainer">
 				<div className="rules">Each time you pick a card, the deck gets shuffled. Pick a card that you didn't choose before to gain a point.</div>
-				<div className="currentScore"></div>
-				<div className="bestScore"></div>
+				<div className="currentScore">{currentScore}</div>
+				<div className="bestScore">{bestScore}</div>
 			</div>
 		</div>
 	);
