@@ -33,7 +33,7 @@ function Deck() {
 		<div className="deck">
 			<div className="cardsContainer">{cardComponentsList}</div>
 			<div className="infoContainer">
-				<div className="rules"></div>
+				<div className="rules">Each time you pick a card, the deck gets shuffled. Pick a card that you didn't choose before to gain a point.</div>
 				<div className="currentScore"></div>
 				<div className="bestScore"></div>
 			</div>
