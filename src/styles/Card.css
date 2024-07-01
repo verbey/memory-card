@@ -1,22 +1,24 @@
 .card {
-	width: 15vw;
+	width: max(15vw, 200px);
 	height: 40vh;
 	position: relative;
 }
 
 img {
 	height: 40vh;
-	width: 15vw;
+	width: 100%;
 	border-radius: 8px;
 	object-fit: cover;
 }
 
 p {
 	font-size: 0.8rem;
-	text-overflow: clip;
+	height: 0.8rem;
+	overflow: scroll;
 	position: relative;
 	bottom: 2.4rem;
 	left: 8px;
+	width: calc(100% - 16px);
 	z-index: 2;
 }
 
