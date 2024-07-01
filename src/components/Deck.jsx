@@ -66,7 +66,14 @@ function Deck() {
 		else {
 			clickedCard.clicked = true;
 			setCurrentScore(currentScore + 1);
-			setBestScore(currentScore + 1 > bestScore ? currentScore + 1 : bestScore);
+			if (currentScore + 1 > bestScore) {
+				setBestScore(currentScore + 1);
+				const bestScoreElement = document.querySelector('.bestScore');
+				bestScoreElement.classList.add('animate__animated', 'animate__tada');
+				bestScoreElement.addEventListener('animationend', () => {
+					bestScoreElement.classList.remove('animate__animated', 'animate__tada');
+				});
+			}
 			setCardList(newCardList);
 		}
 
