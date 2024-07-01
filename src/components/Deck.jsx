@@ -1,6 +1,6 @@
 import '../styles/Deck.css';
 import Card from './Card.jsx';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 function Deck() {
 	const [cardList, setCardList] = useState([]);
@@ -68,12 +68,12 @@ function Deck() {
 	});
 
 	return (
-		<div className="deck" onClick={handleCardClick} >
-			<div className="cardsContainer">{cardComponentsList}</div>
-			<div className="infoContainer">
-				<div className="rules">Each time you pick a card, the deck gets shuffled. Pick a card that you didn't choose before to gain a point.</div>
-				<div className="currentScore">Current score: {currentScore}</div>
-				<div className="bestScore">Best score: {bestScore}</div>
+		<div className='deck' onClick={handleCardClick} >
+			<div className='cardsContainer'>{cardComponentsList}</div>
+			<div className='infoContainer'>
+				<div className='rules'>Each time you pick a card, the deck gets shuffled. Pick a card that you didn't choose before to gain a point.</div>
+				<div className='currentScore'>Current score: {currentScore}</div>
+				<div className='bestScore'>Best score: {bestScore}</div>
 			</div>
 		</div>
 	);
