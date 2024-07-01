@@ -5,7 +5,7 @@ function Card(props) {
 	return (
 
 		<div className='card'>
-			<img src={props.src} alt={props.alt} />
+			<img src={props.src} />
 			<p className='cardDescription'>{props.description}</p>
 			<div className="overlay"></div>
 		</div>
