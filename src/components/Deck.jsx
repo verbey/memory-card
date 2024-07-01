@@ -17,7 +17,9 @@ function Deck() {
 				for (let i = 0; i < 12; i++) {
 					newCardList.push({
 						src: `https://www.artic.edu/iiif/2/${data.data[i].image_id}/full/400,/0/default.jpg`,
-						description: `${data.data[i].title} by ${data.data[i].artist_title}`
+						description: `${data.data[i].title} by ${data.data[i].artist_title}`,
+						key: crypto.randomUUID(),
+						clicked: false
 					});
 				}
 
@@ -26,12 +28,20 @@ function Deck() {
 	}, []);
 
 	function shuffleCards() {
+		let tempCardList = cardList;
+		let newCardList = [];
+		for (let i = 0; i < 12; i++) {
+			const randomIndex = Math.floor(Math.random() * tempCardList.length);
+			newCardList.push(tempCardList[randomIndex]);
+			tempCardList.splice(randomIndex, 1);
+		}
 
+		setCardList(newCardList);
 	}
 
 	let cardComponentsList = [];
-	cardList.forEach((card, i) => {
-		cardComponentsList.push(<Card key={i} src={card.src} description={card.description} />);
+	cardList.forEach(card => {
+		cardComponentsList.push(<Card key={card.key} src={card.src} description={card.description} />);
 	});
 
 	return (
