@@ -1,7 +1,15 @@
+@import url('./catpuccin.css');
+
 .card {
 	width: max(15vw, 200px);
 	height: 40vh;
 	position: relative;
+	border-radius: 8px;
+}
+
+.card:hover {
+	cursor: pointer;
+	box-shadow: 0 0 16px var(--accent);
 }
 
 img {
