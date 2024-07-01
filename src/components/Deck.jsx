@@ -86,7 +86,7 @@ function Deck() {
 	});
 
 	return (
-		<div className='deck' onClick={handleCardClick} >
+		<div className='deck animate__animated animate__backInRight' onClick={handleCardClick} >
 			<div className='cardsContainer'>{cardComponentsList}</div>
 			<div className='infoContainer'>
 				<div className='rules'>Each time you pick a card, the deck gets shuffled. Pick a card that you didn't choose before to gain a point.</div>
