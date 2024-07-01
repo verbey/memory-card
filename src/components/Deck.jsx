@@ -66,7 +66,7 @@ function Deck() {
 		else {
 			clickedCard.clicked = true;
 			setCurrentScore(currentScore + 1);
-			setBestScore(currentScore > bestScore ? currentScore + 1 : bestScore);
+			setBestScore(currentScore + 1 > bestScore ? currentScore + 1 : bestScore);
 			setCardList(newCardList);
 		}
 
