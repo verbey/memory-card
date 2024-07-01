@@ -1,5 +1,6 @@
 import '../styles/Deck.css';
 import Card from './Card.jsx';
+import 'animate.css';
 import { useEffect, useState } from 'react';
 
 function Deck() {
@@ -39,17 +40,27 @@ function Deck() {
 		setCardList(newCardList);
 	}
 
-	function handleCardClick(event) {
+	async function handleCardClick(event) {
 		const clickedImgSrc = event.target.parentElement.firstChild.src;
 
 		let newCardList = cardList;
 		const clickedCard = newCardList.find(card => card.src === clickedImgSrc);
 
 		if (clickedCard.clicked) {
-			// TODO: Implement animation of the card that made you lose the game;	
-			setCurrentScore(0);
-			newCardList = newCardList.map(card => card.clicked = false);
-			setCardList(newCardList);
+			event.target.parentElement.classList.add('animate__animated', 'animate__wobble');
+			const animationPromise = (() => {
+				return new Promise(resolve => {
+					event.target.parentElement.addEventListener('animationend', () => {
+						event.target.parentElement.classList.remove('animate__animated', 'animate__wobble');
+						resolve();
+					});
+				});
+			});
+			await animationPromise().then(() => {
+				setCurrentScore(0);
+				newCardList = newCardList.map(card => card.clicked = false);
+				setCardList(newCardList);
+			});
 		}
 
 		else {
