@@ -16,4 +16,5 @@
 	flex-direction: column;
 	justify-content: space-between;
 	gap: 1vmin;
+	min-width: 90dvw;
 }
